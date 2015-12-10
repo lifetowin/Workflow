@@ -1,0 +1,64 @@
+@mixin button-appearance(
+  $btn-radius,
+  $btn-radius-size,
+  $btn-text-color,
+  $btn-back-color,
+  $btn-hover-back-color,
+  $border,
+  $border-color,
+  $btn-hover-back-color,
+  $border-sides
+ )
+{
+  color:$btn-text-color;
+   
+  @if $btn-radius != false{
+    border-radius:$btn-radius-size;
+  }
+   
+  background:$btn-back-color;
+
+  &:hover{
+    background:$btn-hover-back-color;
+    border-color:$border-hover-color;
+  }
+   
+  @if $border == true{
+    @include border($border-size solid $border-color,$border-sides);
+  }
+   
+}
+
+ .r-btn{
+   display: inline-block;
+   padding:0.625em 1.625em;
+   text-decoration: none;
+   transition:background 0.3s ease-in;
+ }
+
+
+ $btn-radius-size:true;
+ $btn-radius:5px; // if this is false then radius won't be set
+
+ $btn-text-color:#fff;
+ $btn-back-color:#40d47e;
+ $btn-hover-back-color:darken($btn-back-color, 10%);
+
+ $border:true;
+ $border-color:darken($btn-back-color, 10%);
+ $border-size:0.313em;
+ $border-hover-color:$btn-back-color;
+ $border-sides:bottom;
+
+ .r-btn--primary{
+   @extend .r-btn;
+   @include button-appearance($btn-radius,
+   $btn-radius-size,
+   $btn-text-color,
+   $btn-back-color,
+   $btn-hover-back-color,
+   $border,
+   $border-color,
+   $btn-hover-back-color,
+   $border-sides)
+ }
