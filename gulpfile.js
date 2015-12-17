@@ -55,13 +55,13 @@ gulp.task('watch', ['sass'], function(gulpCallback) {
   }, function callback() {
     // (server is now up)
 
-    gulp.watch("*.jade", ['jade']);
+    gulp.watch(["*.jade","./jade/**/*.jade"], ['jade']);
 
     // watch html and reload browsers when it changes
     gulp.watch('index.html', browserSync.reload);
 
     // when sass files change run specified gulp task
-    gulp.watch('./sass/*.scss', ['sass']);
+    gulp.watch('./sass/**/*.scss', ['sass']);
 
     gulp.watch("./js/*.js", browserSync.reload);
 
