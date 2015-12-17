@@ -5,7 +5,7 @@
 }
 
 @mixin set-block-cover($filename){
-    background:url(../img/$filename) 0 0 no-repeat;
+    background:url('../img/'+ $filename) 0 0 no-repeat;
     background-size:cover;
 }
 
